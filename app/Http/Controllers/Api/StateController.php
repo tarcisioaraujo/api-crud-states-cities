@@ -8,6 +8,16 @@ use App\State;
 
 class StateController extends Controller
 {    
+    /**
+     * @OA\Get(
+     *     tags={"state"},
+     *     summary="Returns a list of states",
+     *     description="Returns a object of states",
+     *     path="/V1/state",
+     *     @OA\Response(response="200", description="A list with states"),
+     * ),
+     * 
+    */
     public function index()
     {
         return State::all();
