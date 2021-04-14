@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Citie extends Model
 {
     protected $fillable = [
-        'name'
+        'name', 'state_id'
     ];
 
     public function state() {

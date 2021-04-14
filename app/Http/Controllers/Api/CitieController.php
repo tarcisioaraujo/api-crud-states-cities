@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\CitieRequest;
 use App\Http\Controllers\Controller;
 use App\Citie;
 
@@ -13,7 +13,7 @@ class CitieController extends Controller
         return Citie::all();
     }
 
-    public function store(Request $request)
+    public function store(CitieRequest $request)
     {
         Citie::create($request->all());
     }
@@ -23,7 +23,7 @@ class CitieController extends Controller
         return Citie::findOrFail($id);
     }
     
-    public function update(Request $request, $id)
+    public function update(CitieRequest $request, $id)
     {
         $citie = Citie::findOrFail($id);
         $citie->update($request->all());

@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
-// use Illuminate\Http\Request;
 use App\Http\Requests\StateRequest;
 use App\Http\Controllers\Controller;
 use App\State;
 
 class StateController extends Controller
-{
-    
+{    
     public function index()
     {
         return State::all();
