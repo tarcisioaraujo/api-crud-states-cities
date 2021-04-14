@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
+use App\Http\Requests\StateRequest;
 use App\Http\Controllers\Controller;
 use App\State;
 
@@ -14,7 +15,7 @@ class StateController extends Controller
         return State::all();
     }
 
-    public function store(Request $request)
+    public function store(StateRequest $request)
     {
         State::create($request->all());
     }
@@ -24,7 +25,7 @@ class StateController extends Controller
         return State::findOrFail($id);
     }
     
-    public function update(Request $request, $id)
+    public function update(StateRequest $request, $id)
     {
         $state = State::findOrFail($id);
         $state->update($request->all());
