@@ -11,11 +11,14 @@ class StateController extends Controller
     /**
      * @OA\Get(
      *     tags={"state"},
-     *     summary="Returns a list of states",
-     *     description="Returns a object of states",
-     *     path="/V1/state",
-     *     @OA\Response(response="200", description="A list with states"),
-     * ),
+     *     summary="Get a list of states",
+     *     description="Returns a list of states",
+     *     path="/state",
+     *     @OA\Response(
+     *          response="200", 
+     *          description="Successful operation"
+     *     ),
+     * )
      * 
     */
     public function index()

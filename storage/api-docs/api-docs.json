@@ -1,0 +1,41 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API CRUD States Cities Documentation",
+        "description": "An API with CRUD of States and Cities",
+        "contact": {
+            "email": "tarcisio.saraujo@gmail.com"
+        },
+        "license": {
+            "name": "The MIT License (MIT)",
+            "url": "https://mit-license.org/"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/state": {
+            "get": {
+                "tags": [
+                    "state"
+                ],
+                "summary": "Get a list of states",
+                "description": "Returns a list of states",
+                "operationId": "App\\Http\\Controllers\\Api\\StateController::index",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "API CRUD States Cities",
+            "description": "API Endpoints of CRUD States Cities"
+        }
+    ],
+    "security": [
+        []
+    ]
+}
