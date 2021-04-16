@@ -19,8 +19,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
  *          name="The MIT License (MIT)",
  *          url="https://mit-license.org/"
  *      )
- * )
- *
+ * ) 
  *
  * @OA\Tag(
  *     name="API CRUD States Cities",

@@ -13,10 +13,10 @@
         "version": "1.0.0"
     },
     "paths": {
-        "/state": {
+        "/api/states": {
             "get": {
                 "tags": [
-                    "state"
+                    "States"
                 ],
                 "summary": "Get a list of states",
                 "description": "Returns a list of states",
@@ -25,6 +25,140 @@
                     "200": {
                         "description": "Successful operation"
                     }
+                }
+            },
+            "post": {
+                "tags": [
+                    "States"
+                ],
+                "summary": "Store new state",
+                "description": "Store state data",
+                "operationId": "App\\Http\\Controllers\\Api\\StateController::store",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "State name",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/api/states/{id}": {
+            "get": {
+                "tags": [
+                    "States"
+                ],
+                "summary": "Get state information",
+                "description": "Returns state data",
+                "operationId": "App\\Http\\Controllers\\Api\\StateController::show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "State id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "States"
+                ],
+                "summary": "Update existing state",
+                "description": "Update state data",
+                "operationId": "App\\Http\\Controllers\\Api\\StateController::update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "State id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "State name",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "States"
+                ],
+                "summary": "Delete existing state",
+                "description": "Delete a state data",
+                "operationId": "App\\Http\\Controllers\\Api\\StateController::destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "State id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "StateRequest": {
+                "title": "State",
+                "description": "State model",
+                "xml": {
+                    "name": "State"
+                }
+            },
+            "State": {
+                "title": "State",
+                "description": "State model",
+                "xml": {
+                    "name": "State"
                 }
             }
         }
