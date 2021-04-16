@@ -3,7 +3,7 @@
 A State and City CRUD API built on Laravel 7 and documented with Swagger
 
 <p align="center">		
-	<img src="https://img.shields.io/github/license/tarcisioaraujo/api-crud-states-cities" alt="License">	 
+	<img src="https://img.shields.io/github/license/tarcisioaraujo/api-crud-states-cities?style=plastic" alt="License">	 
 </p>
 
 <p align="center">
