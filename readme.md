@@ -71,9 +71,11 @@ php artisan key:generate
 DB_CONNECTION=sqlite
 DB_HOST=127.0.0.1
 DB_PORT=3306
-...
-PUSHER_APP_CLUSTER=mt1
+//DB_DATABASE=homestead
+//DB_USERNAME=homestead
+//DB_PASSWORD=secret
 
+# Add in .env file this
 L5_SWAGGER_GENERATE_ALWAYS=true
 SWAGGER_VERSION=2.0
 
