@@ -69,11 +69,13 @@ php artisan key:generate
 
 # Change the .env file to look like this
 DB_CONNECTION=sqlite
-//DB_HOST=127.0.0.1
-//DB_PORT=3306
-//DB_DATABASE=homestead
-//DB_USERNAME=homestead
-//DB_PASSWORD=secret
+DB_HOST=127.0.0.1
+DB_PORT=3306
+...
+PUSHER_APP_CLUSTER=mt1
+
+L5_SWAGGER_GENERATE_ALWAYS=true
+SWAGGER_VERSION=2.0
 
 # Create SQLite database file
 copy con .\database\database.sqlite
