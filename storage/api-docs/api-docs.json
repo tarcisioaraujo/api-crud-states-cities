@@ -13,6 +13,155 @@
         "version": "1.0.0"
     },
     "paths": {
+        "/api/cities": {
+            "get": {
+                "tags": [
+                    "Cities"
+                ],
+                "summary": "Get a list of cities",
+                "description": "Returns a list of cities",
+                "operationId": "App\\Http\\Controllers\\Api\\CitieController::index",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Cities"
+                ],
+                "summary": "Store new citie",
+                "description": "Store citie data",
+                "operationId": "App\\Http\\Controllers\\Api\\CitieController::store",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Citie name",
+                        "required": true
+                    },
+                    {
+                        "name": "state_id",
+                        "in": "query",
+                        "description": "State id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/api/cities/{id}": {
+            "get": {
+                "tags": [
+                    "Cities"
+                ],
+                "summary": "Get citie information",
+                "description": "Returns citie data",
+                "operationId": "App\\Http\\Controllers\\Api\\CitieController::show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Citie id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Cities"
+                ],
+                "summary": "Update existing citie",
+                "description": "Update citie data",
+                "operationId": "App\\Http\\Controllers\\Api\\CitieController::update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Citie id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Citie name",
+                        "required": true
+                    },
+                    {
+                        "name": "state_id",
+                        "in": "query",
+                        "description": "State id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Cities"
+                ],
+                "summary": "Delete existing citie",
+                "description": "Delete a citie data",
+                "operationId": "App\\Http\\Controllers\\Api\\CitieController::destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Citie id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
         "/api/states": {
             "get": {
                 "tags": [
@@ -141,24 +290,6 @@
                     "404": {
                         "description": "Not Found"
                     }
-                }
-            }
-        }
-    },
-    "components": {
-        "schemas": {
-            "StateRequest": {
-                "title": "State",
-                "description": "State model",
-                "xml": {
-                    "name": "State"
-                }
-            },
-            "State": {
-                "title": "State",
-                "description": "State model",
-                "xml": {
-                    "name": "State"
                 }
             }
         }
