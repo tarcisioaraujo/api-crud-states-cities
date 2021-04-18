@@ -21,9 +21,11 @@ class StateTest extends TestCase
     }  
     
     public function test_create_state()
-    {
+    {   
+        $state = factory(State::class)->make();        
+
         $response = $this->postJson('/api/states', [
-            'name' => 'Acre'
+            'name' => $state->name
         ]);
 
         $response->assertStatus(200);
@@ -31,25 +33,21 @@ class StateTest extends TestCase
 
     public function test_get_state()
     {
-        $response = $this->postJson('/api/states', [
-            'name' => 'Acre'
-        ]);
+        $state = factory(State::class)->create();
 
-        $response = $this->getJson('/api/states/1');
+        $response = $this->getJson('/api/states/' . $state->id);        
 
         $response->assertStatus(200);
     }
 
     public function test_update_state()
     {
-        $response = $this->postJson('/api/states', [
-            'name' => 'Acre'
-        ]);
+        $state = factory(State::class)->create();
 
-        $response = $this->getJson('/api/states/1');
+        $stateFake = factory(State::class)->make();
 
-        $response = $this->putJson('/api/states/1', [
-            'name' => 'Recife'
+        $response = $this->putJson('/api/states/' . $state->id, [
+            'name' => $stateFake->name
         ]);
 
         $response->assertStatus(200);
@@ -57,11 +55,9 @@ class StateTest extends TestCase
 
     public function test_delete_state()
     {
-        $response = $this->postJson('/api/states', [
-            'name' => 'Acre'
-        ]);
+        $state = factory(State::class)->create();
 
-        $response = $this->deleteJson('/api/states/1');
+        $response = $this->deleteJson('/api/states/' . $state->id);
 
         $response->assertStatus(200);
     }
