@@ -1,6 +1,6 @@
 <h1 align="center">API CRUD States Cities</h1>
 
-A State and City CRUD API built on Laravel 7 and documented with Swagger
+A State and City CRUD API built on Laravel 7, documented with Swagger and automated testing with PHPUnit.
 
 <p align="center">		
 	<img src="https://img.shields.io/github/license/tarcisioaraujo/api-crud-states-cities?style=plastic" alt="License">	 
@@ -12,14 +12,22 @@ A State and City CRUD API built on Laravel 7 and documented with Swagger
 	<a href="#warning-prerequisites">Prerequisites</a> •
 	<a href="#elephant-php-configuration">PHP configuration</a> •
 	<a href="#hammer_and_wrench-installation">Installation</a> •	
-	<a href="#construction_worker-author">Author</a>
+	<a href="#muscle-testing">Testing</a> •
+	<a href="#construction_worker-author">Author</a> •
 	<a href="#memo-license">License</a>
+</p>
+
+<p align="center">
+	<kbd>
+		<img alt="Login" title="#Login" width="512" height="333" style="border-radius: 5px" src="./assets/teste_documentacao_swagger.png">
+	</kbd>		
 </p>
 
 ## :computer: Technology 
 
 - [Laravel](https://laravel.com/)
 - [PHP](https://www.php.net/)
+- [PHPUnit](https://phpunit.de/)
 - [Swagger](https://swagger.io/)
 
 ## :runner: Starting
@@ -94,6 +102,17 @@ php artisan serve
 # Access address
 http://localhost:8000/api/documentation
 ```
+
+## :muscle: Testing
+
+Steps to run automated tests
+
+```
+#Run tests
+composer test
+```
+
+
 ## :construction_worker: Author
 
 <a href="https://github.com/tarcisioaraujo">
