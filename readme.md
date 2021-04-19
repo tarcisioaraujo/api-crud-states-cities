@@ -108,10 +108,9 @@ http://localhost:8000/api/documentation
 Steps to run automated tests
 
 ```
-#Run tests
+# Run tests
 composer test
 ```
-
 
 ## :construction_worker: Author
 
