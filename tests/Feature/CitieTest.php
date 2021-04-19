@@ -18,7 +18,7 @@ class CitieTest extends TestCase
     {
         $response = $this->getJson('/api/cities');
 
-        $response->assertStatus(200);
+        $response->assertOk();
     }  
     
     public function test_create_citie()
@@ -32,7 +32,11 @@ class CitieTest extends TestCase
             'state_id' => $state->id
         ]);
 
-        $response->assertStatus(200);
+        $response->assertCreated()
+            ->assertJsonFragment([
+                'name' => $citie->name,
+                'state_id' => $state->id
+            ]);
     }
 
     public function test_get_citie()
@@ -43,23 +47,30 @@ class CitieTest extends TestCase
 
         $response = $this->getJson('/api/cities/' . $citie->id);        
 
-        $response->assertStatus(200);
+        $response->assertOk()
+            ->assertJsonFragment([
+                'name' => $citie->name
+            ]);
     }
 
     public function test_update_citie()
     {
         $state = factory(State::class)->create();
-
         $citie = factory(Citie::class)->create(['state_id' => $state->id]);
 
-        $citieFake = factory(Citie::class)->make();
+        $anotherState = factory(State::class)->create();
+        $citieFake = factory(Citie::class)->make();        
 
         $response = $this->putJson('/api/cities/' . $citie->id, [
             'name' => $citieFake->name,
-            'state_id' => $citie->state_id
+            'state_id' => $anotherState->id
         ]);
 
-        $response->assertStatus(200);
+        $response->assertOk()
+            ->assertJsonFragment([
+                'name' => $citieFake->name,
+                'state_id' => $anotherState->id                
+            ]);
     }
 
     public function test_delete_citie()
@@ -70,6 +81,6 @@ class CitieTest extends TestCase
 
         $response = $this->deleteJson('/api/cities/' . $citie->id);
 
-        $response->assertStatus(200);
+        $response->assertStatus(204);
     }
 }

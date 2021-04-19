@@ -39,7 +39,7 @@ class StateController extends Controller
      *          required=true,
      *      ),
      *      @OA\Response(
-     *          response=200,
+     *          response=201,
      *          description="Successful operation"
      *      ),
      *      @OA\Response(
@@ -142,7 +142,7 @@ class StateController extends Controller
      *          )
      *      ),
      *      @OA\Response(
-     *          response=200,
+     *          response=204,
      *          description="Successful operation"
      *      ),
      *      @OA\Response(

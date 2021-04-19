@@ -48,7 +48,7 @@ class CitieController extends Controller
      *          )
      *      ),
      *      @OA\Response(
-     *          response=200,
+     *          response=201,
      *          description="Successful operation"
      *      ),
      *      @OA\Response(
@@ -59,7 +59,7 @@ class CitieController extends Controller
     */
     public function store(CitieRequest $request)
     {
-        Citie::create($request->all());
+        return Citie::create($request->all());
     }
     
     /**
@@ -140,6 +140,8 @@ class CitieController extends Controller
     {
         $citie = Citie::findOrFail($id);
         $citie->update($request->all());
+
+        return $citie;
     }
 
     /**
@@ -158,7 +160,7 @@ class CitieController extends Controller
      *          )
      *      ),
      *      @OA\Response(
-     *          response=200,
+     *          response=204,
      *          description="Successful operation"
      *      ),
      *      @OA\Response(
@@ -171,5 +173,7 @@ class CitieController extends Controller
     {
         $citie = Citie::findOrFail($id);
         $citie->delete();
+
+        return response()->json(null, 204);
     }
 }
