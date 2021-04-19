@@ -17,7 +17,7 @@ class StateTest extends TestCase
     {
         $response = $this->getJson('/api/states');
 
-        $response->assertStatus(200);
+        $response->assertOk();
     }  
     
     public function test_create_state()
@@ -28,7 +28,10 @@ class StateTest extends TestCase
             'name' => $state->name
         ]);
 
-        $response->assertStatus(200);
+        $response->assertCreated()
+            ->assertJsonFragment([
+                'name' => $state->name
+            ]);
     }
 
     public function test_get_state()
@@ -37,7 +40,10 @@ class StateTest extends TestCase
 
         $response = $this->getJson('/api/states/' . $state->id);        
 
-        $response->assertStatus(200);
+        $response->assertOk()
+            ->assertJsonFragment([
+                'name' => $state->name
+            ]);
     }
 
     public function test_update_state()
@@ -50,7 +56,10 @@ class StateTest extends TestCase
             'name' => $stateFake->name
         ]);
 
-        $response->assertStatus(200);
+        $response->assertOk()
+            ->assertJsonFragment([
+                'name' => $stateFake->name
+            ]);
     }
 
     public function test_delete_state()
@@ -59,6 +68,6 @@ class StateTest extends TestCase
 
         $response = $this->deleteJson('/api/states/' . $state->id);
 
-        $response->assertStatus(200);
+        $response->assertStatus(204);
     }
 }
